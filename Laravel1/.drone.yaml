@@ -1,5 +1,6 @@
 pipeline:
-  service:
+  build:  
     image: eboraas/laravel
     commands:
-      /etc/init.d/apache2 status
+      apt-get install -y nano
+      apt-get install -y openssh-server
