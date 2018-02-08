@@ -1,6 +1,13 @@
+clone:
+  git:
+    image: plugins/git
+    depth: 50
+    tags: true
 pipeline:
   backend:
-    image: eboraas/laravel
+    image: laradock/workspace:1.8-71
     commands:
-      - apt-get install -y nano
-      - apt-get install -y openssh-server
+      - cp .env.example .env
+      - composer install --prefer-dist
+      - php artisan key:generate
+      - ./vendor/bin/phpunit
