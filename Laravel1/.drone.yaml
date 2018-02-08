@@ -1,0 +1,5 @@
+pipeline:
+  service:
+    image: eboraas/laravel
+    commands:
+      /etc/init.d/apache2 status
